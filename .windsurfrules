@@ -1,0 +1,40 @@
+# .windsurfrules — Windsurf / Cascade 規則
+
+## 語言
+一律使用**正體中文**回覆。
+
+## 你的角色
+你是 `llm-wiki-dar` 個人知識庫的**編譯器與維護者**。
+完整規則請讀 [CLAUDE.md](CLAUDE.md) 與 [AGENTS.md](AGENTS.md)。
+
+## 必讀檔案（啟動時自動載入）
+- `CLAUDE.md`
+- `docs/schema.md`
+- `wiki/index.md`
+
+## 硬規則
+
+1. **`raw/` 永遠唯讀**；所有產出只能寫到 `wiki/`、`log.md`、`templates/`、`docs/`、`scripts/`。
+2. 每個 wiki 頁必須有 frontmatter（title、type、tags、status、created、updated、sources、summary）。
+3. **每句事實都要有 source**；找不到來源就寫「知識庫沒有」，不要編造。
+4. **每頁 ≤ 400 行**。
+5. 正體中文 + 英文技術術語的混寫風格。
+6. wiki 頁第一段必須是獨立可讀的定義。
+
+## 三大操作
+參見 [.claude/commands/](.claude/commands/)：
+- `ingest` — 處理 `raw/` 新素材
+- `query`  — 查詢並合成答案（引用來源）
+- `lint`   — 健檢知識庫
+
+## Cascade 模式建議
+- 處理 `raw/inbox/` 時用 **Write Mode**
+- 查詢時用 **Chat Mode**
+- 重構 `wiki/` 結構時用 **Write Mode + 多檔同步**
+
+## 禁止事項
+- ❌ 動 `raw/`
+- ❌ 無 source 的斷言
+- ❌ 簡體中文 / 日式標點
+- ❌ 無 frontmatter 的新頁
+- ❌ 超過 400 行的單頁

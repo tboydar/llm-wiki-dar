@@ -1,0 +1,44 @@
+# === 作業系統 ===
+.DS_Store
+Thumbs.db
+*.swp
+*~
+
+# === 編輯器 / IDE ===
+.vscode/
+.idea/
+*.code-workspace
+
+# === 本地工具輸出 ===
+.obsidian/workspace*
+.obsidian/cache
+.trash/
+
+# === agent 會自動寫入，不想進 repo 的 ===
+.omc/
+.claude/logs/
+.claude/cache/
+.claude/sessions/
+.codex/sessions/
+.windsurf/cache/
+
+# === raw/inbox/ 預設私有（可按需開放） ===
+# 取消註解代表「收件匣」不上雲
+# raw/inbox/**
+# !raw/inbox/.gitkeep
+
+# === 敏感設定 ===
+.env
+.env.local
+*.secret
+secrets/
+credentials.json
+
+# === 建置產物 ===
+dist/
+build/
+node_modules/
+__pycache__/
+*.pyc
+.venv/
+venv/
