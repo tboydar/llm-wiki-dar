@@ -1,0 +1,14 @@
+{
+  "legacyEditor": false,
+  "livePreview": true,
+  "showLineNumber": true,
+  "foldHeading": true,
+  "foldIndent": true,
+  "readableLineLength": true,
+  "newLinkFormat": "relative",
+  "useMarkdownLinks": false,
+  "alwaysUpdateLinks": true,
+  "attachmentFolderPath": "raw/attachments",
+  "showUnsupportedFiles": false,
+  "promptDelete": true
+}

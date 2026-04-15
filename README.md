@@ -1,8 +1,14 @@
 # llm-wiki-dar
 
+[![Wiki Lint](https://github.com/tboydar/llm-wiki-dar/actions/workflows/lint.yml/badge.svg)](https://github.com/tboydar/llm-wiki-dar/actions/workflows/lint.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![正體中文](https://img.shields.io/badge/lang-%E6%AD%A3%E9%AB%94%E4%B8%AD%E6%96%87-red.svg)](README.md)
+
 > 一個由 LLM agent 協助維護的**個人知識庫**，採用 [Karpathy LLM Wiki](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f) 模式、[gatelynch/llm-knowledge-base](https://github.com/gatelynch/llm-knowledge-base) 的工作流程概念，並同時相容於 **Claude Code / Windsurf / OpenCode / GitHub Copilot / Codex / Hermes / OpenClaw** 等 agentic 工具。
 >
 > 內容以**正體中文**為主。
+>
+> 🚀 **5 分鐘上手**：[docs/getting-started.md](docs/getting-started.md)
 
 ---
 
