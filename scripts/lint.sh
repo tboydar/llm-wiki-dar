@@ -72,20 +72,28 @@ check_file() {
     fi
   done
 
-  # 4. type 枚舉
+  # 4. type 枚舉（用 bash 字串比對，避免把使用者輸入當 regex）
   local ftype
   ftype=$(grep '^type:' <<<"$fm" | sed 's/type:[[:space:]]*//' | tr -d '"' | tr -d "'" | head -1)
   if [[ -n "$ftype" ]]; then
-    if ! echo " $ALLOWED_TYPES " | grep -q " $ftype "; then
+    local type_ok=0
+    for t in $ALLOWED_TYPES; do
+      [[ "$ftype" == "$t" ]] && type_ok=1 && break
+    done
+    if [[ "$type_ok" -eq 0 ]]; then
       err "$rel: type '$ftype' 不在允許枚舉 ($ALLOWED_TYPES)"
     fi
   fi
 
-  # 5. status 枚舉
+  # 5. status 枚舉（同上，避免 regex 注入）
   local fstatus
   fstatus=$(grep '^status:' <<<"$fm" | sed 's/status:[[:space:]]*//' | tr -d '"' | tr -d "'" | head -1)
   if [[ -n "$fstatus" ]]; then
-    if ! echo " $ALLOWED_STATUS " | grep -q " $fstatus "; then
+    local status_ok=0
+    for s in $ALLOWED_STATUS; do
+      [[ "$fstatus" == "$s" ]] && status_ok=1 && break
+    done
+    if [[ "$status_ok" -eq 0 ]]; then
       err "$rel: status '$fstatus' 不在允許枚舉 ($ALLOWED_STATUS)"
     fi
   fi
