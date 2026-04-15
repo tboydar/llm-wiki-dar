@@ -19,10 +19,13 @@ summary: >
 ## 🧠 Concepts（概念）
 
 ### AI / LLM
-- _（空，等待 ingest）_
+- [[wiki/concepts/llm-wiki-pattern.md]] — Karpathy 提出的替代 RAG 方案
+- [[wiki/concepts/rag.md]] — Retrieval-Augmented Generation
+- [[wiki/concepts/agent.md]] — LLM agent loop 與工具使用
+- [[wiki/concepts/prompt-engineering.md]] — 提示工程實務
 
 ### 軟體工程 / DevOps
-- _（空）_
+- _（空，等待 ingest）_
 
 ### 研究方法
 - _（空）_

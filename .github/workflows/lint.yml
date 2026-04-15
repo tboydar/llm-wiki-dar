@@ -1,0 +1,38 @@
+name: Wiki Lint
+
+# Workflow is safe: no untrusted github.event input is used in run: steps.
+# All commands operate on hardcoded paths in the repo.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'wiki/**'
+      - 'docs/**'
+      - 'scripts/lint.sh'
+      - '.github/workflows/lint.yml'
+  pull_request:
+    paths:
+      - 'wiki/**'
+      - 'docs/**'
+      - 'scripts/lint.sh'
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Make lint script executable
+        run: chmod +x scripts/lint.sh
+
+      - name: Lint wiki/
+        run: ./scripts/lint.sh wiki/
+
+      - name: Lint docs/
+        # exit 2 = warnings only, still treat as pass
+        run: ./scripts/lint.sh docs/ || test $? -eq 2
